@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neuro Static Pulse | Understanding Chronic Pain & Autonomic Peripheral Neuropathy</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    header {
+      background: #0A0F14;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #2D3A4A;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 600;
+      color: #00B2FF;
+    }
+
+    nav a {
+      color: #D9D9D9;
+      text-decoration: none;
+      margin-left: 2rem;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00B2FF;
+    }
+
+    nav a.active {
+      color: #00B2FF;
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 4rem 2rem;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0A0F14 0%, #1A2330 100%);
+      color: white;
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    h2 {
+      font-size: 36px;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+
+    .tagline {
+      font-size: 18px;
+      color: #00B2FF;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #D9D9D9;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      font-size: 16px;
+      margin: 0.5rem;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background: #FF6B00;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #E55A00;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #00B2FF;
+      border: 2px solid #00B2FF;
+    }
+
+    .btn-secondary:hover {
+      background: #00B2FF;
+      color: white;
+    }
+
+    .section-dark {
+      background: #1A2330;
+      color: white;
+    }
+
+    .section-dark h2 {
+      color: white;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .section-dark .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #2D3A4A;
+      color: white;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    .section-dark .card h3 {
+      color: #00B2FF;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .section-dark .card p {
+      color: #D9D9D9;
+    }
+
+    .card-icon {
+      font-size: 48px;
+      margin-bottom: 1rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border: 1px solid #eee;
+      border-radius: 8px;
+    }
+
+    .section-dark form {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #2D3A4A;
+    }
+
+    form label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .section-dark form label {
+      color: white;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    .section-dark form input,
+    .section-dark form textarea {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #2D3A4A;
+      color: white;
+    }
+
+    form input::placeholder,
+    form textarea::placeholder {
+      color: #999;
+    }
+
+    .section-dark form input::placeholder,
+    .section-dark form textarea::placeholder {
+      color: #999;
+    }
+
+    footer {
+      background: #0A0F14;
+      color: #D9D9D9;
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid #2D3A4A;
+      font-size: 14px;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .pillar {
+      background: rgba(0, 178, 255, 0.1);
+      border: 1px solid #00B2FF;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .pillar h3 {
+      color: #00B2FF;
+      font-size: 16px;
+      margin-bottom: 0.5rem;
+    }
+
+    .pillar p {
+      font-size: 13px;
+      color: #666;
+    }
+
+    .podcast-item {
+      background: white;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-dark .podcast-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #2D3A4A;
+    }
+
+    .podcast-number {
+      color: #00B2FF;
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .podcast-item h3 {
+      color: #333;
+      font-size: 20px;
+      margin: 0.5rem 0;
+    }
+
+    .section-dark .podcast-item h3 {
+      color: white;
+    }
+
+    .podcast-item p {
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    .section-dark .podcast-item p {
+      color: #D9D9D9;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav a {
+        margin-left: 1rem;
+        font-size: 12px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      .pillars {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">NSP</div>
+  <nav>
+    <a href="#" onclick="showSection('home')" class="active">Home</a>
+    <a href="#" onclick="showSection('about')">About</a>
+    <a href="#" onclick="showSection('podcast')">Podcast</a>
+    <a href="#" onclick="showSection('blog')">Blog</a>
+    <a href="#" onclick="showSection('coaching')">Coaching</a>
+    <a href="#" onclick="showSection('join')">Join</a>
+    <a href="#" onclick="showSection('contact')">Contact</a>
+  </nav>
+</header>
+
+<!-- Home Section -->
+<section id="home" class="hero">
+  <div class="container">
+    <h1>Neuro Static Pulse</h1>
+    <p class="tagline">Understanding Chronic Pain & Autonomic Peripheral Neuropathy</p>
+    <p class="subtitle">Your diagnosis doesn't define you. Join our community of warriors breaking through the silence, finding freedom, and living with purpose.</p>
+    <button class="btn btn-primary" onclick="showSection('podcast')">Listen to Podcast</button>
+    <button class="btn btn-secondary" onclick="showSection('join')">Join Community</button>
+  </div>
+</section>
+
+<!-- Five Pillars -->
+<section id="pillars">
+  <div class="container">
+    <h2>Five Pillars of Hope</h2>
+    <div class="pillars">
+      <div class="pillar">
+        <h3>Identity</h3>
+        <p>Know who you are</p>
+      </div>
+      <div class="pillar">
+        <h3>Freedom</h3>
+        <p>Break the chains</p>
+      </div>
+      <div class="pillar">
+        <h3>Faith</h3>
+        <p>Hold on tight</p>
+      </div>
+      <div class="pillar">
+        <h3>Purpose</h3>
+        <p>Live with meaning</p>
+      </div>
+      <div class="pillar">
+        <h3>Community</h3>
+        <p>Never alone</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="hidden section-dark">
+  <div class="container">
+    <h2>About Neuro Static Pulse</h2>
+    <p style="font-size: 16px; margin-bottom: 2rem;">Neuro Static Pulse is a faith-based community dedicated to helping people understand and navigate chronic pain and autonomic peripheral neuropathy (APN). We believe your diagnosis doesn't define you, and your darkest moments can become your greatest testimonies.</p>
+    
+    <h2 style="margin-top: 3rem;">Our Mission</h2>
+    <p style="font-size: 16px;">To break the silence around chronic pain, provide authentic support, and help people discover their purpose beyond their diagnosis through real conversations, faith, and community.</p>
+
+    <h2 style="margin-top: 3rem;">What We Offer</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon">🎙️</div>
+        <h3>Podcast</h3>
+        <p>Raw, honest conversations about living with chronic pain</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📖</div>
+        <h3>Blog</h3>
+        <p>Articles, resources, and insights for your journey</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💬</div>
+        <h3>Coaching</h3>
+        <p>One-on-one faith-based life coaching and mentoring</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">👥</div>
+        <h3>Community</h3>
+        <p>Connect with others who understand your struggle</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Podcast Section -->
+<section id="podcast" class="hidden section-dark">
+  <div class="container">
+    <h2>Neuro Static Pulse Podcast</h2>
+    <p style="font-size: 16px; margin-bottom: 2rem; color: #D9D9D9;">Listen to raw, honest conversations about living with chronic pain and neuropathy. Real stories. Real hope.</p>
+
+    <div class="podcast-item">
+      <p class="podcast-number">EPISODE 1</p>
+      <h3>Understanding Your Diagnosis</h3>
+      <p>An introduction to chronic pain, neuropathy, and what it means for your life moving forward.</p>
+      <button class="btn btn-primary">Listen Now</button>
+    </div>
+
+    <div class="podcast-item">
+      <p class="podcast-number">EPISODE 2</p>
+      <h3>Breaking the Silence</h3>
+      <p>Why we hide our pain and how vulnerability becomes our greatest strength.</p>
+      <button class="btn btn-primary">Listen Now</button>
+    </div>
+
+    <div class="podcast-item">
+      <p class="podcast-number">EPISODE 3</p>
+      <h3>Faith When It Hurts</h3>
+      <p>How to maintain faith and hope when chronic pain feels overwhelming.</p>
+      <button class="btn btn-primary">Listen Now</button>
+    </div>
+
+    <p style="text-align: center; margin-top: 2rem; color: #D9D9D9;">
+      <strong>Subscribe on:</strong> Apple Podcasts • Spotify • Google Podcasts • YouTube
+    </p>
+  </div>
+</section>
+
+<!-- Blog Section -->
+<section id="blog" class="hidden">
+  <div class="container">
+    <h2>Blog</h2>
+    <p style="font-size: 16px; margin-bottom: 2rem;">Articles, resources, and insights to help you navigate your journey with chronic pain and neuropathy.</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Living With Pain: A Daily Practice</h3>
+        <p>Practical strategies for managing chronic pain while maintaining your quality of life.</p>
+        <button class="btn btn-secondary" style="margin-top: 1rem;">Read More</button>
+      </div>
+      <div class="card">
+        <h3>Understanding Neuropathy</h3>
+        <p>A comprehensive guide to what autonomic peripheral neuropathy is and how it affects your body.</p>
+        <button class="btn btn-secondary" style="margin-top: 1rem;">Read More</button>
+      </div>
+      <div class="card">
+        <h3>Faith and Healing</h3>
+        <p>How faith-based practices can support your emotional and spiritual wellbeing during difficult times.</p>
+        <button class="btn btn-secondary" style="margin-top: 1rem;">Read More</button>
+      </div>
+      <div class="card">
+        <h3>Building Your Support System</h3>
+        <p>Creating a community of people who understand and support your journey.</p>
+        <button class="btn btn-secondary" style="margin-top: 1rem;">Read More</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Coaching Section -->
+<section id="coaching" class="hidden section-dark">
+  <div class="container">
+    <h2>Coaching & Mentoring</h2>
+    <p style="font-size: 16px; margin-bottom: 2rem;">Sometimes you need more than a podcast. You need someone to sit with you, speak truth to you, and walk with you through the hard places.</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>One-on-One Coaching</h3>
+        <p>Faith-based life coaching tailored to your journey. Find purpose, rebuild identity, and navigate life's hardest challenges with a brother in your corner.</p>
+        <button class="btn btn-primary" style="margin-top: 1rem;" onclick="document.getElementById('coaching-form').scrollIntoView({behavior: 'smooth'})">Book Session</button>
+      </div>
+      <div class="card">
+        <h3>Group Mentoring</h3>
+        <p>Small groups built for growth, accountability, encouragement, and prayer. Because we go further together.</p>
+        <button class="btn btn-primary" style="margin-top: 1rem;" onclick="document.getElementById('coaching-form').scrollIntoView({behavior: 'smooth'})">Learn More</button>
+      </div>
+    </div>
+
+    <form id="coaching-form" style="margin-top: 3rem;">
+      <h3 style="color: white; margin-bottom: 1rem;">Coaching Inquiry</h3>
+      <label>Name</label>
+      <input type="text" name="name" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>What brings you here?</label>
+      <textarea name="message" rows="5" required></textarea>
+
+      <button type="submit" class="btn btn-primary" style="margin-top: 1.5rem; width: 100%;">Send Inquiry</button>
+    </form>
+  </div>
+</section>
+
+<!-- Join Section -->
+<section id="join" class="hidden">
+  <div class="container">
+    <h2>Join the Community</h2>
+    <p style="font-size: 16px; margin-bottom: 2rem; text-align: center;">Choose your level of commitment to the Neuro Static Pulse community.</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Newsletter Only</h3>
+        <p style="font-size: 24px; color: #00B2FF; font-weight: 600; margin: 1rem 0;">Free</p>
+        <ul style="text-align: left; font-size: 14px; line-height: 2;">
+          <li>Weekly episodes</li>
+          <li>Resources & articles</li>
+          <li>Community updates</li>
+        </ul>
+        <button class="btn btn-secondary" style="margin-top: 1rem; width: 100%;" onclick="showSection('contact')">Sign Up</button>
+      </div>
+      <div class="card" style="border: 2px solid #FF6B00;">
+        <h3>Community Member</h3>
+        <p style="font-size: 24px; color: #FF6B00; font-weight: 600; margin: 1rem 0;">$10/month</p>
+        <ul style="text-align: left; font-size: 14px; line-height: 2;">
+          <li>Everything in Newsletter</li>
+          <li>Exclusive content</li>
+          <li>Community forum access</li>
+          <li>Member discounts</li>
+        </ul>
+        <button class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Join Now</button>
+      </div>
+      <div class="card">
+        <h3>Coaching Program</h3>
+        <p style="font-size: 24px; color: #00B2FF; font-weight: 600; margin: 1rem 0;">Custom</p>
+        <ul style="text-align: left; font-size: 14px; line-height: 2;">
+          <li>1-on-1 coaching sessions</li>
+          <li>Personalized guidance</li>
+          <li>Community access</li>
+          <li>Priority support</li>
+        </ul>
+        <button class="btn btn-secondary" style="margin-top: 1rem; width: 100%;" onclick="showSection('coaching')">Inquire</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="hidden section-dark">
+  <div class="container">
+    <h2>Get in Touch</h2>
+    <p style="font-size: 16px; margin-bottom: 2rem; text-align: center;">Have questions? Want to connect? Send us a message.</p>
+
+    <form action="https://formspree.io/f/xnjepjrb" method="POST">
+      <label>Name</label>
+      <input type="text" name="name" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Subject</label>
+      <input type="text" name="subject" required>
+
+      <label>Message</label>
+      <textarea name="message" rows="6" required></textarea>
+
+      <button type="submit" class="btn btn-primary" style="margin-top: 1.5rem; width: 100%;">Send Message</button>
+    </form>
+
+    <p style="text-align: center; margin-top: 2rem; font-size: 14px;">Email: support@nervestaticspark.org</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>Neuro Static Pulse | Understanding Chronic Pain & Autonomic Peripheral Neuropathy</p>
+  <p style="margin-top: 0.5rem; color: #00B2FF;">Your diagnosis doesn't define you.</p>
+  <p style="margin-top: 1rem; font-size: 12px;">&copy; 2026 Neuro Static Pulse. All rights reserved.</p>
+</footer>
+
+<script>
+  function showSection(sectionId) {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+      if (section.id === sectionId) {
+        section.classList.remove('hidden');
+      } else if (section.id !== 'home' && section.id !== 'pillars') {
+        section.classList.add('hidden');
+      } else if (section.id === 'home' && sectionId !== 'home') {
+        section.classList.add('hidden');
+      } else if (section.id === 'pillars' && sectionId === 'home') {
+        section.classList.remove('hidden');
+      }
+    });
+
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('onclick').includes(sectionId)) {
+        link.classList.add('active');
+      }
+    });
+
+    window.scrollTo(0, 0);
+  }
+
+
+</script>
+
+</body>
+</html>
